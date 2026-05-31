@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>성휘 엔지니어링 종합기술사사무소</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0D2340;
+      --gold: #C9A24A;
+      --white: #ffffff;
+      --light: #f5f5f3;
+      --gray: #888;
+      --text: #222;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 60px; height: 70px;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .nav-logo {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700; font-size: 17px; letter-spacing: 3px;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-logo small {
+      display: block; font-size: 9px; letter-spacing: 2px;
+      color: var(--gold); font-weight: 500; margin-top: 1px;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 12px; letter-spacing: 1px; color: #444;
+      text-decoration: none; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-contact {
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      color: var(--navy); border: 1.5px solid var(--navy);
+      padding: 8px 20px; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-contact:hover { background: var(--navy); color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      height: 100vh; min-height: 600px;
+      background: var(--navy);
+      display: flex; align-items: flex-end;
+      padding: 0 60px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, rgba(13,35,64,0.95) 40%, rgba(13,35,64,0.5)),
+        url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px; letter-spacing: 3px; color: var(--gold);
+      text-transform: uppercase; font-family: 'Barlow', sans-serif;
+      font-weight: 600; margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(36px, 5.5vw, 68px);
+      font-weight: 300; color: #fff; line-height: 1.15;
+      letter-spacing: -1px; margin-bottom: 10px;
+    }
+    .hero h1 strong { font-weight: 700; display: block; }
+    .hero-ko {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: rgba(255,255,255,0.5); font-weight: 400;
+      margin-bottom: 32px; letter-spacing: 2px;
+    }
+    .hero-desc {
+      font-size: 14px; line-height: 1.9;
+      color: rgba(255,255,255,0.55); max-width: 460px;
+      margin-bottom: 44px; font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 14px; }
+    .btn-solid {
+      background: var(--gold); color: var(--navy);
+      padding: 14px 32px; font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-solid:hover { background: #dbb95a; }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.35); color: rgba(255,255,255,0.8);
+      padding: 14px 32px; font-size: 12px; font-weight: 400;
+      letter-spacing: 2px; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute; bottom: 32px; right: 60px;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; z-index: 2;
+    }
+    .scroll-hint span {
+      font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.4);
+      font-family: 'Barlow', sans-serif; writing-mode: vertical-rl;
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      animation: scrollDown 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers {
+      background: var(--gold);
+      display: flex;
+    }
+    .num-item {
+      flex: 1; padding: 36px 40px;
+      border-right: 1px solid rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .num-item:last-child { border-right: none; }
+    .num-val {
+      font-family: 'Barlow', sans-serif;
+      font-size: 40px; font-weight: 700;
+      color: var(--navy); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .num-val sup { font-size: 18px; }
+    .num-label { font-size: 12px; color: rgba(13,35,64,0.7); font-weight: 500; }
+
+    /* ── ABOUT ── */
+    .about {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+    .about-img {
+      background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80') center/cover;
+    }
+    .about-content {
+      padding: 90px 70px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .section-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px; letter-spacing: 4px; font-weight: 600;
+      color: var(--gold); text-transform: uppercase; margin-bottom: 18px;
+    }
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(24px, 3vw, 36px); font-weight: 700;
+      line-height: 1.4; color: var(--navy); margin-bottom: 28px;
+    }
+    .divider {
+      width: 40px; height: 2px; background: var(--gold); margin-bottom: 28px;
+    }
+    .about-content p {
+      font-size: 14px; line-height: 2; color: #555;
+      font-weight: 300; margin-bottom: 16px;
+    }
+    .about-content p:last-of-type { margin-bottom: 0; }
+
+    /* ── CEO ── */
+    .ceo {
+      background: var(--light);
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+    }
+    .ceo-content {
+      padding: 90px 70px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .ceo-content p {
+      font-size: 14px; line-height: 2; color: #555;
+      font-weight: 300; margin-bottom: 32px;
+    }
+    .cert-tags { display: flex; flex-direction: column; gap: 10px; }
+    .cert-tag {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 20px; background: #fff;
+      border-left: 3px solid var(--gold);
+    }
+    .cert-tag-icon { font-size: 18px; }
+    .cert-tag-text { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .cert-tag-sub { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+    .ceo-card {
+      background: var(--navy);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px; text-align: center;
+    }
+    .ceo-avatar {
+      width: 140px; height: 140px; border-radius: 50%;
+      border: 2px solid rgba(201,162,74,0.5);
+      background: rgba(201,162,74,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 52px; color: rgba(201,162,74,0.7);
+      margin-bottom: 28px;
+    }
+    .ceo-name {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 28px; font-weight: 700; color: #fff;
+      margin-bottom: 8px;
+    }
+    .ceo-title-text {
+      font-size: 12px; letter-spacing: 2px;
+      color: var(--gold); font-weight: 500; margin-bottom: 24px;
+    }
+    .ceo-quote {
+      font-size: 13px; line-height: 1.9;
+      color: rgba(255,255,255,0.5); font-weight: 300;
+      max-width: 280px; font-style: italic;
+    }
+    .ceo-quote::before { content: '"'; }
+    .ceo-quote::after { content: '"'; }
+
+    /* ── SERVICES ── */
+    .services { padding: 100px 60px; background: #fff; }
+    .services-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 60px;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: #e8e8e8;
+    }
+    .svc {
+      background: #fff; padding: 44px 36px;
+      transition: all 0.25s; cursor: default;
+      border-bottom: 3px solid transparent;
+    }
+    .svc:hover { border-bottom-color: var(--gold); background: var(--light); }
+    .svc-num {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .svc-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px; font-weight: 700; color: var(--navy);
+      margin-bottom: 14px; line-height: 1.4;
+    }
+    .svc-desc { font-size: 13px; line-height: 1.9; color: #777; font-weight: 300; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .contact-info { padding: 90px 70px; }
+    .contact-info .section-eyebrow { color: var(--gold); }
+    .contact-info .section-title { color: #fff; }
+    .contact-info p {
+      font-size: 14px; line-height: 2; color: rgba(255,255,255,0.5);
+      font-weight: 300; margin-bottom: 44px;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 22px; }
+    .contact-row { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-row-label {
+      font-size: 10px; letter-spacing: 2px; font-weight: 700;
+      color: var(--gold); min-width: 70px; padding-top: 2px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .contact-row-val {
+      font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 300;
+    }
+
+    .contact-form-wrap {
+      background: rgba(255,255,255,0.04);
+      border-left: 1px solid rgba(255,255,255,0.08);
+      padding: 90px 70px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .form-label {
+      font-size: 10px; letter-spacing: 2px; color: var(--gold);
+      font-family: 'Barlow', sans-serif; font-weight: 600;
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    input.fi, textarea.fi {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff; padding: 13px 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 13px; outline: none; width: 100%;
+      transition: border-color 0.2s;
+    }
+    input.fi::placeholder, textarea.fi::placeholder { color: rgba(255,255,255,0.25); }
+    input.fi:focus, textarea.fi:focus { border-color: var(--gold); }
+    textarea.fi { min-height: 110px; resize: vertical; }
+    .form-submit {
+      background: var(--gold); border: none;
+      color: var(--navy); font-family: 'Noto Sans KR', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      padding: 15px; cursor: pointer; margin-top: 6px;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: #dbb95a; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060f1a;
+      padding: 28px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-left {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px; font-weight: 600; letter-spacing: 3px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-left span { color: var(--gold); }
+    footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-contact { display: none; }
+      .hero { padding: 0 24px 60px; }
+      .scroll-hint { display: none; }
+      .numbers { flex-direction: column; }
+      .num-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
+      .about, .ceo, .contact-grid { grid-template-columns: 1fr; }
+      .about-img { height: 300px; }
+      .about-content, .ceo-content, .contact-info, .contact-form-wrap { padding: 60px 24px; }
+      .services { padding: 70px 24px; }
+      .services-header { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .services-grid { grid-template-columns: 1fr; }
+      .ceo-card { padding: 60px 24px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    SEONGHWI ENGINEERING
+    <small>성휘 엔지니어링 종합기술사사무소</small>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">회사 소개</a></li>
+    <li><a href="#ceo">대표 소개</a></li>
+    <li><a href="#services">업무 분야</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-contact" href="#contact">문의하기</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">종합기술사사무소 · Established 2026</span>
+    <h1>Engineering<br><strong>Excellence &amp;<br>Safety First</strong></h1>
+    <p class="hero-ko">성휘 엔지니어링</p>
+    <p class="hero-desc">건축시공·토목시공·건설안전 분야의 전문 기술사가 이끄는 기술사사무소입니다. 현장 중심의 경험과 전문 지식을 바탕으로 최고의 기술 서비스를 제공합니다.</p>
+    <div class="hero-actions">
+      <a class="btn-solid" href="#services">업무 분야 보기</a>
+      <a class="btn-ghost" href="#contact">문의하기</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers">
+  <div class="num-item">
+    <div class="num-val">3<sup>개</sup></div>
+    <div class="num-label">기술사 자격증 보유</div>
+  </div>
+  <div class="num-item">
+    <div class="num-val">3개</div>
+    <div class="num-label">전문 분야</div>
+  </div>
+  <div class="num-item">
+    <div class="num-val">1위</div>
+    <div class="num-label">안전 최우선 원칙</div>
+  </div>
+  <div class="num-item">
+    <div class="num-val">24h</div>
+    <div class="num-label">전문 기술 지원</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img"></div>
+  <div class="about-content">
+    <p class="section-eyebrow">About Us</p>
+    <h2 class="section-title">전문성과 신뢰로<br>함께하는 기술사사무소</h2>
+    <div class="divider"></div>
+    <p>성휘 엔지니어링 종합기술사사무소는 건축시공, 토목시공, 건설안전 분야의 기술사 자격을 보유한 대표가 직접 이끄는 전문 기술사사무소입니다.</p>
+    <p>다년간의 현장 경험과 전문 지식을 바탕으로 고객 맞춤형 기술 솔루션을 제공하며, 안전하고 신뢰할 수 있는 건설 환경을 만들기 위해 최선을 다합니다.</p>
+  </div>
+</section>
+
+<!-- CEO -->
+<section class="ceo" id="ceo">
+  <div class="ceo-content">
+    <p class="section-eyebrow">Representative</p>
+    <h2 class="section-title">대표 기술사<br>소개 예정</h2>
+    <div class="divider"></div>
+    <p>건축시공·토목시공·건설안전 3개 분야 기술사 자격을 모두 보유한 전문가로서, 풍부한 현장 경험을 바탕으로 고객에게 최적화된 기술 서비스를 제공합니다.</p>
+    <div class="cert-tags">
+      <div class="cert-tag">
+        <div class="cert-tag-icon">🏗</div>
+        <div>
+          <div class="cert-tag-text">건축시공기술사</div>
+          <div class="cert-tag-sub">Professional Engineer · Building Construction</div>
+        </div>
+      </div>
+      <div class="cert-tag">
+        <div class="cert-tag-icon">🌉</div>
+        <div>
+          <div class="cert-tag-text">토목시공기술사</div>
+          <div class="cert-tag-sub">Professional Engineer · Civil Construction</div>
+        </div>
+      </div>
+      <div class="cert-tag">
+        <div class="cert-tag-icon">⛑</div>
+        <div>
+          <div class="cert-tag-text">건설안전기술사</div>
+          <div class="cert-tag-sub">Professional Engineer · Construction Safety</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ceo-card">
+    <div class="ceo-avatar">✦</div>
+    <div class="ceo-name">Coming 2028</div>
+    <div class="ceo-title-text">PE · 종합기술사사무소</div>
+    <p class="ceo-quote">고객의 신뢰를 최우선으로, 안전하고 신뢰할 수 있는 건설 환경을 만들겠습니다.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-title" style="margin-bottom:0">주요 업무 분야</h2>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="svc">
+      <div class="svc-num">01</div>
+      <div class="svc-title">건축시공 기술 자문</div>
+      <p class="svc-desc">건축물의 시공 계획 수립부터 공정 관리까지 전문적인 기술 자문 서비스를 제공합니다. 품질 확보와 공기 단축을 동시에 실현합니다.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">02</div>
+      <div class="svc-title">토목시공 기술 자문</div>
+      <p class="svc-desc">도로, 교량, 지반, 구조물 등 토목 분야 전반에 걸친 시공 기술 지원과 품질 관리를 수행합니다.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">03</div>
+      <div class="svc-title">건설안전 관리</div>
+      <p class="svc-desc">건설 현장의 안전 관리 계획 수립, 위험성 평가, 안전 점검 및 교육을 통해 무재해 현장을 실현합니다.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">04</div>
+      <div class="svc-title">공사 감리 및 감독</div>
+      <p class="svc-desc">발주처를 대신하여 공사의 품질, 공정, 안전, 환경 등을 종합적으로 관리하는 감리 서비스를 제공합니다.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">05</div>
+      <div class="svc-title">안전 진단 및 점검</div>
+      <p class="svc-desc">기존 건축물 및 구조물에 대한 정밀 안전 진단과 유지 관리 방안을 제시하여 시설물의 안전성을 확보합니다.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">06</div>
+      <div class="svc-title">기술 컨설팅</div>
+      <p class="svc-desc">건설 관련 인허가, 분쟁 해결, 원가 절감, 공법 선정 등 다양한 기술적 문제에 대한 전문 컨설팅을 제공합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p class="section-eyebrow">Contact</p>
+      <h2 class="section-title" style="color:#fff">프로젝트를<br>함께 시작하세요</h2>
+      <div class="divider"></div>
+      <p>기술 자문, 안전 관리, 감리 등 어떤 분야든 편하게 문의해 주세요. 빠르고 정확하게 답변드리겠습니다.</p>
+      <div class="contact-details">
+        <div class="contact-row">
+          <span class="contact-row-label">EMAIL</span>
+          <span class="contact-row-val">seonghwi@seonghwi.co.kr</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">WEB</span>
+          <span class="contact-row-val">www.seonghwi.co.kr</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">ADDRESS</span>
+          <span class="contact-row-val">주소 추가 예정</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">TEL</span>
+          <span class="contact-row-val">전화번호 추가 예정</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="form-row-2">
+        <div class="form-group">
+          <div class="form-label">성함</div>
+          <input class="fi" type="text" placeholder="홍길동">
+        </div>
+        <div class="form-group">
+          <div class="form-label">연락처</div>
+          <input class="fi" type="text" placeholder="010-0000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-label">이메일</div>
+        <input class="fi" type="email" placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <div class="form-label">문의 유형</div>
+        <input class="fi" type="text" placeholder="기술 자문 / 안전 관리 / 감리 / 기타">
+      </div>
+      <div class="form-group">
+        <div class="form-label">문의 내용</div>
+        <textarea class="fi" placeholder="문의 내용을 입력해 주세요."></textarea>
+      </div>
+      <button class="form-submit">문의 보내기 →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">SEONGHWI <span>ENGINEERING</span></div>
+  <p>© 2026 성휘 엔지니어링 종합기술사사무소. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
