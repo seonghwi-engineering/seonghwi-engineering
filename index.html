@@ -193,6 +193,13 @@
       padding: 14px; font-weight: 700; letter-spacing: 1px;
       border-bottom: none !important;
     }
+
+    .contact-simple {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 80px 60px;
+      text-align: left;
+    }
     /* SCROLL ANIMATIONS */
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -381,27 +388,14 @@
 </section>
 
 <section class="contact" id="contact">
-  <div class="contact-grid">
-    <div class="contact-info reveal">
-      <h2 class="section-title">CONTACT</h2>
-      <div class="divider"></div>
-      <p>편하게 문의해 주세요. 빠르고 정확하게 답변드리겠습니다.</p>
-      <div class="contact-details">
-        <div class="contact-row"><span class="contact-row-label">EMAIL</span><span class="contact-row-val">seonghwi.engineering@gmail.com</span></div>
-        <div class="contact-row"><span class="contact-row-label">WEB</span><span class="contact-row-val">www.seonghwi.co.kr</span></div>
-        <div class="contact-row"><span class="contact-row-label">ADDRESS</span><span class="contact-row-val">주소 추가 예정</span></div>
-        <div class="contact-row"><span class="contact-row-label">TEL</span><span class="contact-row-val">전화번호 추가 예정</span></div>
-      </div>
-    </div>
-    <div class="contact-form-wrap reveal reveal-delay-2">
-      <div class="form-row-2">
-        <div class="form-group"><div class="form-label">성함</div><input class="fi" type="text" placeholder="홍길동"></div>
-        <div class="form-group"><div class="form-label">연락처</div><input class="fi" type="text" placeholder="010-0000-0000"></div>
-      </div>
-      <div class="form-group"><div class="form-label">이메일</div><input class="fi" type="email" placeholder="example@email.com"></div>
-      <div class="form-group"><div class="form-label">문의 유형</div><input class="fi" type="text" placeholder="기술 자문 / 안전 관리 / 감리 / 기타"></div>
-      <div class="form-group"><div class="form-label">문의 내용</div><textarea class="fi" placeholder="문의 내용을 입력해 주세요."></textarea></div>
-      <button class="form-submit">문의 보내기 →</button>
+  <div class="contact-simple reveal">
+    <h2 class="section-title" style="color:#fff; margin-bottom:16px;">CONTACT</h2>
+    <div class="divider"></div>
+    <p style="font-size:14px; color:rgba(255,255,255,0.5); margin-bottom:40px; font-weight:300;">편하게 문의해 주세요. 빠르고 정확하게 답변드리겠습니다.</p>
+    <div class="contact-details">
+      <div class="contact-row"><span class="contact-row-label">TEL</span><span class="contact-row-val">전화번호 추가 예정</span></div>
+      <div class="contact-row"><span class="contact-row-label">EMAIL</span><span class="contact-row-val">seonghwi.engineering@gmail.com</span></div>
+      <div class="contact-row"><span class="contact-row-label">ADDRESS</span><span class="contact-row-val">주소 추가 예정</span></div>
     </div>
   </div>
 </section>
