@@ -33,9 +33,9 @@
     }
     .nav-logo { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 3px; color: var(--navy); text-decoration: none; }
     .nav-logo small { display: block; font-size: 9px; letter-spacing: 2px; color: var(--gold); font-weight: 500; margin-top: 1px; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a { font-size: 12px; letter-spacing: 1px; color: #444; text-decoration: none; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--navy); }
+    
+    
+    
     .nav-contact { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--navy); border: 1.5px solid var(--navy); padding: 8px 20px; text-decoration: none; transition: all 0.2s; }
     .nav-contact:hover { background: var(--navy); color: #fff; }
 
@@ -217,7 +217,7 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
-      .nav-links, .nav-contact { display: none; }
+      .nav-contact { display: none; }
       .hero { padding: 0 24px 60px; }
       .scroll-hint { display: none; }
       .numbers { flex-direction: column; }
@@ -242,12 +242,7 @@
       <span style="color:#C9A24A; font-size:14px;"> 성휘 엔지니어링</span>
     </span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#about">회사 소개</a></li>
-    <li><a href="#ceo">대표 소개</a></li>
-    <li><a href="#services">업무 분야</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+
   <div style="display:flex; align-items:center; gap:16px;">
     <a class="nav-contact" href="#contact">문의하기</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="메뉴">
