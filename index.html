@@ -33,9 +33,6 @@
     }
     .nav-logo { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 3px; color: var(--navy); text-decoration: none; }
     .nav-logo small { display: block; font-size: 9px; letter-spacing: 2px; color: var(--gold); font-weight: 500; margin-top: 1px; }
-    
-    
-    
     .nav-contact { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--navy); border: 1.5px solid var(--navy); padding: 8px 20px; text-decoration: none; transition: all 0.2s; }
     .nav-contact:hover { background: var(--navy); color: #fff; }
 
@@ -84,7 +81,7 @@
 
     /* ABOUT */
     .about { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
-    .about-img { background: url('about.jpg') center/cover; }
+    .about-img { background: url('about.jpg') center/cover; background-color: var(--navy-light); }
     .about-content { padding: 90px 70px; display: flex; flex-direction: column; justify-content: center; }
 
     .section-eyebrow { font-family: 'Barlow', sans-serif; font-size: 11px; letter-spacing: 4px; font-weight: 600; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; }
@@ -103,7 +100,6 @@
     .cert-tag-sub { font-size: 11px; color: var(--gray); margin-top: 2px; }
 
     .ceo-card { background: var(--navy); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px; text-align: center; }
-    .ceo-avatar { width: 140px; height: 140px; border-radius: 50%; border: 2px solid rgba(201,162,74,0.5); background: rgba(201,162,74,0.1); display: flex; align-items: center; justify-content: center; font-size: 52px; color: rgba(201,162,74,0.7); margin-bottom: 28px; }
     .ceo-name { font-family: 'Noto Serif KR', serif; font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
     .ceo-title-text { font-size: 12px; letter-spacing: 2px; color: var(--gold); font-weight: 500; margin-bottom: 24px; }
     .ceo-quote { font-size: 13px; line-height: 1.9; color: rgba(255,255,255,0.5); font-weight: 300; max-width: 320px; font-style: italic; }
@@ -114,11 +110,12 @@
     .services { padding: 100px 60px; background: #fff; }
     .services-header { margin-bottom: 60px; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #e8e8e8; }
-    .svc { background: #fff; padding: 44px 36px; transition: all 0.25s; border-bottom: 3px solid transparent; }
+    .svc { background: #fff; padding: 44px 36px; transition: all 0.25s; border-bottom: 3px solid transparent; position: relative; }
     .svc:hover { border-bottom-color: var(--gold); background: var(--light); }
     .svc-num { font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; color: var(--gold); margin-bottom: 20px; }
     .svc-title { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.4; }
     .svc-desc { font-size: 13px; line-height: 1.9; color: #777; font-weight: 300; }
+    .svc-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--gold); border: 1px solid var(--gold); padding: 3px 8px; margin-bottom: 14px; font-family: 'Barlow', sans-serif; }
 
     /* CONTACT */
     .contact { background: var(--navy); }
@@ -140,7 +137,7 @@
     input.fi::placeholder, textarea.fi::placeholder { color: rgba(255,255,255,0.25); }
     input.fi:focus, textarea.fi:focus { border-color: var(--gold); }
     textarea.fi { min-height: 110px; resize: vertical; }
-    .form-submit { background: var(--gold); border: none; color: var(--navy); font-family: 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 15px; cursor: pointer; margin-top: 6px; transition: background 0.2s; }
+    .form-submit { background: var(--gold); border: none; color: var(--navy); font-family: 'Noto Sans KR', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; padding: 15px; cursor: pointer; margin-top: 6px; transition: background 0.2s; width: 100%; }
     .form-submit:hover { background: var(--gold-light); }
 
     /* FOOTER */
@@ -149,57 +146,23 @@
     .footer-left span { color: var(--gold); }
     footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
 
-
-
     .lang-toggle { display: flex; align-items: center; gap: 6px; }
-    .lang-btn {
-      background: none; border: none; cursor: pointer;
-      font-size: 11px; font-weight: 700; letter-spacing: 1px;
-      color: #aaa; font-family: 'Barlow', sans-serif;
-      transition: color 0.2s; padding: 0;
-    }
+    .lang-btn { background: none; border: none; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #aaa; font-family: 'Barlow', sans-serif; transition: color 0.2s; padding: 0; }
     .lang-btn.active { color: var(--navy); }
     .lang-btn:hover { color: var(--navy); }
-    /* HAMBURGER */
-    .hamburger {
-      display: flex; flex-direction: column; justify-content: center;
-      gap: 5px; background: none; border: none; cursor: pointer;
-      padding: 4px; width: 32px;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--navy); transition: all 0.3s;
-    }
+
+    .hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; width: 32px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); transition: all 0.3s; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    .mobile-menu {
-      display: none; flex-direction: column;
-      position: fixed; top: 70px; left: 0; right: 0; z-index: 199;
-      background: #fff; border-bottom: 2px solid var(--gold);
-      padding: 20px 24px;
-    }
+    .mobile-menu { display: none; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; z-index: 199; background: #fff; border-bottom: 2px solid var(--gold); padding: 20px 24px; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 14px 0; font-size: 15px; color: var(--navy);
-      text-decoration: none; font-weight: 500;
-      border-bottom: 1px solid #f0f0f0;
-    }
+    .mobile-menu a { padding: 14px 0; font-size: 15px; color: var(--navy); text-decoration: none; font-weight: 500; border-bottom: 1px solid #f0f0f0; }
     .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu .mobile-contact {
-      margin-top: 10px; background: var(--gold);
-      color: var(--navy) !important; text-align: center;
-      padding: 14px; font-weight: 700; letter-spacing: 1px;
-      border-bottom: none !important;
-    }
+    .mobile-menu .mobile-contact { margin-top: 10px; background: var(--gold); color: var(--navy) !important; text-align: center; padding: 14px; font-weight: 700; letter-spacing: 1px; border-bottom: none !important; }
 
-    .contact-simple {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 80px 60px;
-      text-align: left;
-    }
     /* SCROLL ANIMATIONS */
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -210,28 +173,6 @@
     .reveal-delay-5 { transition-delay: 0.5s; }
     .reveal-delay-6 { transition-delay: 0.6s; }
 
-
-    .star-logo {
-      display: flex; justify-content: center; margin-bottom: 8px;
-    }
-    .star {
-      position: relative; width: 28px; height: 28px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .star::before, .star::after {
-      content: '';
-      position: absolute;
-      background: var(--navy);
-    }
-    .star::before {
-      width: 3px; height: 28px;
-      clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
-      width: 28px; height: 28px;
-      background: var(--navy);
-      clip-path: polygon(50% 0%, 55% 44%, 100% 50%, 55% 56%, 50% 100%, 45% 56%, 0% 50%, 45% 44%);
-    }
-    .star::after { display: none; }
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .nav-contact { display: none; }
@@ -259,10 +200,9 @@
       <span style="color:#C9A24A; font-size:9px; letter-spacing:1px; text-align:center;">성휘 엔지니어링</span>
     </span>
   </a>
-
   <div style="display:flex; align-items:center; gap:16px;">
     <div class="lang-toggle">
-      <button  id="btn-kr" class="lang-btn active">KOR</button>
+      <button id="btn-kr" class="lang-btn active">KOR</button>
       <span style="color:#ccc;">|</span>
       <button onclick="window.location.href='en.html'" id="btn-en" class="lang-btn">ENG</button>
     </div>
@@ -273,7 +213,6 @@
   </div>
 </nav>
 
-<!-- 모바일 메뉴 -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="toggleMenu()">회사 소개</a>
   <a href="#ceo" onclick="toggleMenu()">대표 소개</a>
@@ -288,7 +227,7 @@
     <span class="hero-tag">2028 개업 예정</span>
     <h1>최고의 기술,<br><strong>안전을<br>최우선으로</strong></h1>
     <p class="hero-ko">성휘 엔지니어링</p>
-    <p class="hero-desc">건축시공·토목시공·건설안전 분야의 전문가들이 함께하는 엔지니어링 사무소입니다. 현장 중심의 경험과 전문 지식을 바탕으로 최고의 기술 서비스를 제공하겠습니다.</p>
+    <p class="hero-desc">건축시공·토목시공·건설안전 분야 기술사 3관왕 출신의 전문가가 이끄는 기술사사무소입니다. 법원 건설감정부터 중대재해 컨설팅까지, 현장에서 검증된 기술력으로 함께합니다.</p>
     <div class="hero-actions">
       <a class="btn-solid" href="#services">업무 분야 보기</a>
       <a class="btn-ghost" href="#contact">문의하기</a>
@@ -306,8 +245,8 @@
     <div class="num-label">전문 기술사 자격 보유</div>
   </div>
   <div class="num-item reveal reveal-delay-2">
-    <div class="num-val">20<sup>년+</sup></div>
-    <div class="num-label">업계 경력 전문가 자문</div>
+    <div class="num-val">30<sup>년+</sup></div>
+    <div class="num-label">건설 업계 현장 경력</div>
   </div>
   <div class="num-item reveal reveal-delay-3">
     <div class="num-val">2028</div>
@@ -325,8 +264,8 @@
     <p class="section-eyebrow">About Us</p>
     <h2 class="section-title">전문성과 신뢰로<br>함께하는 기술사사무소</h2>
     <div class="divider"></div>
-    <p>성휘 엔지니어링은 건축시공, 토목시공, 건설안전 분야의 전문 기술사 자격을 보유한 업계 전문가들이 함께하는 엔지니어링 사무소입니다.</p>
-    <p>다년간의 현장 경험과 전문 지식을 바탕으로 고객 맞춤형 기술 솔루션을 제공하며, 안전하고 신뢰할 수 있는 건설 환경을 만들기 위해 최선을 다합니다.</p>
+    <p>성휘 엔지니어링은 건축시공·토목시공·건설안전 분야 전문가들이 함께하는 기술사사무소입니다. 건축시공·토목시공·건설안전 기술사 자격을 모두 보유한 대표가 직접 기술 검토와 최종 판단을 담당합니다. 세 분야를 아우르는 복합 전문성으로 법원과 대형 로펌의 기술 자문 파트너로 활동하고 있습니다.</p>
+    <p>재건축·재개발 공사비 분쟁, 하자 소송, 중대재해처벌법 대응까지 — 법원과 대형 로펌이 신뢰하는 감정·자문 서비스를 제공합니다.</p>
   </div>
 </section>
 
@@ -335,7 +274,7 @@
     <p class="section-eyebrow reveal">Representative</p>
     <h2 class="section-title reveal reveal-delay-1">전문가 소개<br>Coming 2028</h2>
     <div class="divider"></div>
-    <p class="reveal reveal-delay-2">건축시공·토목시공·건설안전 분야의 기술사 자격을 보유한 전문가들이 포진하여 고객에게 최적화된 기술 서비스를 제공합니다.</p>
+    <p class="reveal reveal-delay-2">건축시공·토목시공·건설안전 세 분야의 기술사 자격을 모두 보유한 전문가가 직접 기술 검토와 법원 감정을 담당합니다. 30년 이상의 현장 경험과 대형 설계사 경력을 바탕으로 현장 중심의 솔루션을 제공합니다.</p>
     <div class="cert-tags">
       <div class="cert-tag reveal reveal-delay-3">
         <div class="cert-tag-icon">🏗</div>
@@ -354,7 +293,6 @@
   <div class="ceo-card reveal">
     <div style="margin-bottom:24px;">
       <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 8방향 별 (로고와 동일) -->
         <path d="M35 2 L37.5 32.5 L35 35 L32.5 32.5 Z" fill="#C9A24A"/>
         <path d="M68 35 L37.5 37.5 L35 35 L37.5 32.5 Z" fill="#C9A24A"/>
         <path d="M35 68 L32.5 37.5 L35 35 L37.5 37.5 Z" fill="#C9A24A"/>
@@ -367,7 +305,7 @@
       </svg>
     </div>
     <div class="ceo-name">Coming 2028</div>
-    <div class="ceo-title-text">성휘 엔지니어링</div>
+    <div class="ceo-title-text">성휘 엔지니어링 대표</div>
     <p class="ceo-quote">고객의 신뢰를 최우선으로,<br>안전하고 신뢰할 수 있는 건설 환경을 만들겠습니다.</p>
   </div>
 </section>
@@ -378,21 +316,56 @@
     <h2 class="section-title reveal reveal-delay-1">주요 업무 분야</h2>
   </div>
   <div class="services-grid">
-    <div class="svc reveal reveal-delay-1"><div class="svc-num">01</div><div class="svc-title">건축시공 기술 자문</div><p class="svc-desc">건축물의 시공 계획 수립부터 공정 관리까지 전문적인 기술 자문 서비스를 제공합니다. 품질 확보와 공기 단축을 동시에 실현합니다.</p></div>
-    <div class="svc reveal reveal-delay-2"><div class="svc-num">02</div><div class="svc-title">토목시공 기술 자문</div><p class="svc-desc">도로, 교량, 지반, 구조물 등 토목 분야 전반에 걸친 시공 기술 지원과 품질 관리를 수행합니다.</p></div>
-    <div class="svc reveal reveal-delay-3"><div class="svc-num">03</div><div class="svc-title">건설안전 관리</div><p class="svc-desc">건설 현장의 안전 관리 계획 수립, 위험성 평가, 안전 점검 및 교육을 통해 무재해 현장을 실현합니다.</p></div>
-    <div class="svc reveal reveal-delay-4"><div class="svc-num">04</div><div class="svc-title">공사 감리 및 감독</div><p class="svc-desc">발주처를 대신하여 공사의 품질, 공정, 안전, 환경 등을 종합적으로 관리하는 감리 서비스를 제공합니다.</p></div>
-    <div class="svc reveal reveal-delay-5"><div class="svc-num">05</div><div class="svc-title">안전 진단 및 점검</div><p class="svc-desc">기존 건축물 및 구조물에 대한 정밀 안전 진단과 유지 관리 방안을 제시하여 시설물의 안전성을 확보합니다.</p></div>
-    <div class="svc reveal reveal-delay-6"><div class="svc-num">06</div><div class="svc-title">기술 컨설팅</div><p class="svc-desc">건설 관련 인허가, 분쟁 해결, 원가 절감, 공법 선정 등 다양한 기술적 문제에 대한 전문 컨설팅을 제공합니다.</p></div>
+
+    <div class="svc reveal reveal-delay-1">
+      <div class="svc-badge">CORE SERVICE</div>
+      <div class="svc-num">01</div>
+      <div class="svc-title">법원 건설 특수감정</div>
+      <p class="svc-desc">재건축·재개발 조합과 시공사 간 공사비 증액 분쟁, 하자 소송에서 법원이 의뢰하는 건설 특수감정을 수행합니다. 건축·토목·안전 세 분야를 단일 감정인이 커버하여 복합 분쟁에 최적화된 감정 결과를 제공합니다.</p>
+    </div>
+
+    <div class="svc reveal reveal-delay-2">
+      <div class="svc-badge">CORE SERVICE</div>
+      <div class="svc-num">02</div>
+      <div class="svc-title">대형 로펌 기술 자문</div>
+      <p class="svc-desc">건설·부동산 전문 로펌의 기술 자문 파트너로서 소송 전략 수립부터 감정서 대응, 전문가 증인까지 법적 분쟁의 전 과정에서 기술적 근거를 제공합니다. 수백억~수천억 규모의 건설 분쟁에서 검증된 자문 역량을 발휘합니다.</p>
+    </div>
+
+    <div class="svc reveal reveal-delay-3">
+      <div class="svc-badge">CORE SERVICE</div>
+      <div class="svc-num">03</div>
+      <div class="svc-title">중대재해처벌법 컨설팅</div>
+      <p class="svc-desc">중대재해처벌법 시행 이후 대기업·공공기관의 안전관리체계 구축과 CEO 형사 리스크 대응을 지원합니다. 건설안전기술사의 전문 역량으로 현장 위험성 평가, 안전관리 계획 수립, 사고 발생 시 법적 대응까지 원스톱으로 컨설팅합니다.</p>
+    </div>
+
+    <div class="svc reveal reveal-delay-4">
+      <div class="svc-num">04</div>
+      <div class="svc-title">재건축·재개발 기술 자문</div>
+      <p class="svc-desc">재건축 조합 또는 시공사를 대리하여 공사비 내역서 검토, 설계 도면 분석, 공정 타당성 평가를 수행합니다. 분쟁 발생 전 단계에서 선제적으로 기술적 근거를 확보하고 협상력을 높입니다.</p>
+    </div>
+
+    <div class="svc reveal reveal-delay-5">
+      <div class="svc-num">05</div>
+      <div class="svc-title">안전진단 및 정밀점검</div>
+      <p class="svc-desc">노후 건축물 및 구조물에 대한 정밀안전진단과 안전점검을 수행합니다. 시설물안전법에 따른 법적 의무 이행은 물론, 실제 현장 리스크를 정확히 진단하여 유지관리 방안을 제시합니다.</p>
+    </div>
+
+    <div class="svc reveal reveal-delay-6">
+      <div class="svc-num">06</div>
+      <div class="svc-title">건설 기술 컨설팅</div>
+      <p class="svc-desc">인허가 검토, 공법 선정, 원가 절감, 품질 관리까지 건설 전 과정에 걸친 기술 컨설팅을 제공합니다. 건축·토목·안전 세 분야를 아우르는 복합적 시각으로 현장 맞춤형 솔루션을 제안합니다.</p>
+    </div>
+
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="contact-grid">
     <div class="contact-info reveal">
+      <p class="section-eyebrow">Contact</p>
       <h2 class="section-title" style="color:#fff">CONTACT</h2>
       <div class="divider"></div>
-      <p>편하게 문의해 주세요. 빠르고 정확하게 답변드리겠습니다.</p>
+      <p>법원 감정 의뢰, 로펌 자문 계약, 중대재해 컨설팅 등 어떤 사안이든 편하게 문의해 주세요. 빠르고 정확하게 답변드리겠습니다.</p>
       <div class="contact-details">
         <div class="contact-row"><span class="contact-row-label">TEL</span><span class="contact-row-val">전화번호 추가 예정</span></div>
         <div class="contact-row"><span class="contact-row-label">EMAIL</span><span class="contact-row-val">seonghwi.engineering@gmail.com</span></div>
@@ -406,7 +379,7 @@
           <div class="form-group"><div class="form-label">연락처</div><input class="fi" type="text" name="phone" placeholder="010-0000-0000"></div>
         </div>
         <div class="form-group"><div class="form-label">이메일</div><input class="fi" type="email" name="email" placeholder="example@email.com"></div>
-        <div class="form-group"><div class="form-label">문의 유형</div><input class="fi" type="text" name="type" placeholder="기술 자문 / 안전 관리 / 감리 / 기타"></div>
+        <div class="form-group"><div class="form-label">문의 유형</div><input class="fi" type="text" name="type" placeholder="법원 감정 / 로펌 자문 / 중대재해 컨설팅 / 기타"></div>
         <div class="form-group"><div class="form-label">문의 내용</div><textarea class="fi" name="message" placeholder="문의 내용을 입력해 주세요."></textarea></div>
         <button type="submit" class="form-submit">문의 보내기 →</button>
       </form>
@@ -419,16 +392,7 @@
   <p>© 2026 성휘 엔지니어링. All rights reserved.</p>
 </footer>
 
-
-
-
 <script>
-  function setLang(lang) {
-    document.getElementById('btn-kr').classList.toggle('active', lang === 'kr');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    // 추후 영문 콘텐츠 전환 기능 추가 예정
-  }
-
   function toggleMenu() {
     const menu = document.getElementById('mobileMenu');
     const btn = document.querySelector('.hamburger');
