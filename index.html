@@ -45,9 +45,14 @@
       position: relative; overflow: hidden;
     }
     .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(13,35,64,0.95) 40%, rgba(13,35,64,0.5)),
-        url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80') center/cover no-repeat;
+      position: absolute; inset: 0; overflow: hidden;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(13,35,64,0.92) 35%, rgba(13,35,64,0.45));
+    }
+    .hero-bg video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
     .hero-content { position: relative; z-index: 2; max-width: 680px; }
     .hero-tag { display: inline-block; font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; font-family: 'Barlow', sans-serif; font-weight: 600; margin-bottom: 28px; }
@@ -222,7 +227,11 @@
 </div>
 
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline>
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-content">
     <span class="hero-tag">2028 개업 예정</span>
     <h1>현장을 읽고,<br><strong>안전을<br>잇습니다.</strong></h1>
