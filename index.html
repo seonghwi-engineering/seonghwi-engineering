@@ -10,33 +10,6 @@
   <meta property="og:description" content="건축시공·토목시공·건설안전 기술사 3관왕이 직접 이끄는 종합기술사사무소. 법원 건설감정, 중대재해 컨설팅, 로펌 기술자문 전문.">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    #splash {
-      position: fixed; inset: 0; z-index: 9999;
-      background: #0D2340;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 16px;
-      animation: splashFade 0.6s ease 1.8s forwards;
-    }
-    #splash img { width: 140px; animation: splashLogo 1.8s ease forwards; }
-    #splash .splash-text {
-      font-family: 'Barlow', sans-serif; font-size: 13px;
-      letter-spacing: 6px; color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      animation: splashText 1.8s ease forwards;
-    }
-    @keyframes splashLogo {
-      0% { opacity: 0; transform: scale(0.8); }
-      40% { opacity: 1; transform: scale(1); }
-      80% { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(1.05); }
-    }
-    @keyframes splashText {
-      0% { opacity: 0; } 40% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; }
-    }
-    @keyframes splashFade {
-      to { opacity: 0; pointer-events: none; visibility: hidden; }
-    }
-  </style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -228,10 +201,6 @@
   </style>
 </head>
 <body>
-<div id="splash">
-  <img src="logo.png" alt="성휘 엔지니어링">
-  <div class="splash-text">Seonghwi Engineering</div>
-</div>
 
 <nav>
   <a class="nav-logo" href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
