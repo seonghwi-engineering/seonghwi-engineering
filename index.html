@@ -3,9 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>성휘 엔지니어링</title>
+  <title>성휘 엔지니어링 | 성휘 종합기술사사무소</title>
+  <meta name="description" content="건축시공·토목시공·건설안전 기술사 3관왕 출신의 전문가가 이끄는 종합기술사사무소입니다. 법원 건설감정부터 중대재해 컨설팅까지, 성휘 엔지니어링이 나침반이 되어 함께합니다.">
+  <meta name="keywords" content="성휘 엔지니어링, 성휘 종합기술사사무소, 법원 건설감정, 중대재해 컨설팅, 건설안전기술사, 건축시공기술사, 토목시공기술사">
+  <meta property="og:title" content="성휘 엔지니어링 | 성휘 종합기술사사무소">
+  <meta property="og:description" content="건축시공·토목시공·건설안전 기술사 3관왕이 직접 이끄는 종합기술사사무소. 법원 건설감정, 중대재해 컨설팅, 로펌 기술자문 전문.">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #0D2340;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+      animation: splashFade 0.6s ease 1.8s forwards;
+    }
+    #splash img { width: 140px; animation: splashLogo 1.8s ease forwards; }
+    #splash .splash-text {
+      font-family: 'Barlow', sans-serif; font-size: 13px;
+      letter-spacing: 6px; color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      animation: splashText 1.8s ease forwards;
+    }
+    @keyframes splashLogo {
+      0% { opacity: 0; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1); }
+      80% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.05); }
+    }
+    @keyframes splashText {
+      0% { opacity: 0; } 40% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; }
+    }
+    @keyframes splashFade {
+      to { opacity: 0; pointer-events: none; visibility: hidden; }
+    }
+  </style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -147,9 +178,10 @@
 
     /* FOOTER */
     footer { background: #020a12; padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); }
-    .footer-left { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 3px; color: rgba(255,255,255,0.4); }
+    .footer-left { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 3px; color: rgba(255,255,255,0.8); }
     .footer-left span { color: var(--gold); }
-    footer p { font-size: 11px; color: rgba(255,255,255,0.2); }
+    .footer-left small { display: block; font-size: 10px; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-top: 4px; font-family: 'Noto Sans KR', sans-serif; font-weight: 400; }
+    footer p { font-size: 11px; color: rgba(255,255,255,0.5); }
 
     .lang-toggle { display: flex; align-items: center; gap: 6px; }
     .lang-btn { background: none; border: none; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #aaa; font-family: 'Barlow', sans-serif; transition: color 0.2s; padding: 0; }
@@ -196,6 +228,10 @@
   </style>
 </head>
 <body>
+<div id="splash">
+  <img src="logo.png" alt="성휘 엔지니어링">
+  <div class="splash-text">Seonghwi Engineering</div>
+</div>
 
 <nav>
   <a class="nav-logo" href="#" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
@@ -236,7 +272,7 @@
     <span class="hero-tag">2028 개업 예정</span>
     <h1>현장을 읽고,<br><strong>안전을<br>잇습니다.</strong></h1>
     <p class="hero-ko">성휘 엔지니어링</p>
-    <p class="hero-desc">현장의 안전을 비추는 별, 성휘(星輝).<br>건축시공·토목시공·건설안전 분야 기술사 3관왕 출신의 전문가가 이끄는 기술사사무소입니다.<br>법원 건설감정부터 중대재해 컨설팅까지, 성휘가 검증된 기술력으로 나침반이 되어 함께합니다.</p>
+    <p class="hero-desc">현장의 안전을 비추는 별, 성휘(星輝).<br>건축시공·토목시공·건설안전 분야 기술사 3관왕 출신의 전문가가 이끄는 종합기술사사무소입니다.<br>법원 건설감정부터 중대재해 컨설팅까지, 성휘가 검증된 기술력으로 나침반이 되어 함께합니다.</p>
     <div class="hero-actions">
       <a class="btn-solid" href="#services">업무 분야 보기</a>
       <a class="btn-ghost" href="#contact">문의하기</a>
@@ -271,9 +307,9 @@
   <div class="about-img"></div>
   <div class="about-content reveal">
     <p class="section-eyebrow">About Us</p>
-    <h2 class="section-title">전문성과 신뢰로<br>함께하는 기술사사무소</h2>
+    <h2 class="section-title">전문성과 신뢰로<br>함께하는 종합기술사사무소</h2>
     <div class="divider"></div>
-    <p>성휘 엔지니어링은 건축시공·토목시공·건설안전 분야 전문가들이 함께하는 기술사사무소입니다. 건축시공·토목시공·건설안전 기술사 자격을 모두 보유한 대표가 직접 기술 검토와 최종 판단을 담당합니다. 세 분야를 아우르는 복합 전문성으로 법원과 대형 로펌의 기술 자문 파트너로 활동하고 있습니다.</p>
+    <p>성휘 엔지니어링은 건축시공·토목시공·건설안전 분야 전문가들이 함께하는 종합기술사사무소입니다. 건축시공·토목시공·건설안전 기술사 자격을 모두 보유한 대표가 직접 기술 검토와 최종 판단을 담당합니다. 세 분야를 아우르는 복합 전문성으로 법원과 대형 로펌의 기술 자문 파트너로 활동하고 있습니다.</p>
     <p>재건축·재개발 공사비 분쟁, 하자 소송, 중대재해처벌법 대응까지 — 법원과 대형 로펌이 신뢰하는 감정·자문 서비스를 제공합니다.</p>
   </div>
 </section>
@@ -396,9 +432,13 @@
   </div>
 </section>
 
-<footer>
+<footer style="flex-direction:column; align-items:flex-start; gap:8px; padding:32px 60px;">
   <div class="footer-left">SEONGHWI <span>ENGINEERING</span></div>
-  <p>© 2026 성휘 엔지니어링. All rights reserved.</p>
+  <p style="font-size:11px; color:rgba(255,255,255,0.5); line-height:1.9;">
+    성휘 종합기술사사무소 &nbsp;|&nbsp; 사업자등록번호 : 추가 예정 &nbsp;|&nbsp; 대표 : OOO<br>
+    주소 : 추가 예정 &nbsp;|&nbsp; T. 추가 예정 &nbsp;|&nbsp; Email. seonghwi.engineering@gmail.com
+  </p>
+  <p style="font-size:11px; color:rgba(255,255,255,0.5);">© 2026 성휘 종합기술사사무소. All rights reserved.</p>
 </footer>
 
 <script>
