@@ -14,23 +14,24 @@
       position: fixed; inset: 0; z-index: 9999;
       background: #ffffff;
       display: flex; align-items: center; justify-content: center;
-      animation: splashBgFade 0.5s ease 3.0s forwards;
     }
     #splash-inner {
       display: flex; flex-direction: column; align-items: center; gap: 16px;
       opacity: 0;
-      animation: logoFly 2.4s cubic-bezier(0.7, 0, 0.3, 1) 0.3s forwards;
+      transition: opacity 0.5s ease;
     }
-    #splash-logo { width: 180px; }
-    @keyframes logoFly {
-      0%   { opacity: 0; transform: scale(0.85) translate(0, 0); }
-      25%  { opacity: 1; transform: scale(1) translate(0, 0); }
-      65%  { opacity: 1; transform: scale(1) translate(0, 0); }
-      100% { opacity: 0; transform: scale(0.3) translate(-38vw, -44vh); }
+    #splash-inner.visible { opacity: 1; }
+    #splash-logo {
+      width: 180px;
+      display: block;
+      transition: transform 0.9s cubic-bezier(0.7,0,0.3,1), opacity 0.3s ease 0.6s;
     }
-    @keyframes splashBgFade {
-      to { opacity: 0; pointer-events: none; visibility: hidden; }
+    #splash-text {
+      font-family: 'Barlow', sans-serif; font-size: 22px; font-weight: 700;
+      letter-spacing: 3px; color: #0D2340; text-transform: uppercase;
+      transition: transform 0.9s cubic-bezier(0.7,0,0.3,1), opacity 0.3s ease 0.6s;
     }
+    #splash.hide { opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
   </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -227,7 +228,7 @@
 <div id="splash">
   <div id="splash-inner">
     <img id="splash-logo" src="logo.png" alt="성휘 엔지니어링">
-    <span style="font-family:'Barlow',sans-serif; font-size:13px; font-weight:600; letter-spacing:6px; color:#0D2340; text-transform:uppercase;">Seonghwi Engineering</span>
+    <span id="splash-text">SEONGHWI</span>
   </div>
 </div>
 
@@ -453,9 +454,44 @@
   }, { threshold: 0.15 });
   reveals.forEach(el => observer.observe(el));
 
+  const splash = document.getElementById('splash');
+  const inner = document.getElementById('splash-inner');
+  const splashLogo = document.getElementById('splash-logo');
+  const splashText = document.getElementById('splash-text');
+
+  // 1. 등장
+  setTimeout(() => { inner.classList.add('visible'); }, 100);
+
+  // 2. 각자 헤더 위치로 날아가기
   setTimeout(() => {
-    document.getElementById('splash').style.display = 'none';
-  }, 3600);
+    const headerImg = document.querySelector('.nav-logo img');
+    const headerText = document.querySelector('.nav-logo span span:first-child');
+
+    const logoRect = splashLogo.getBoundingClientRect();
+    const textRect = splashText.getBoundingClientRect();
+    const hLogoRect = headerImg.getBoundingClientRect();
+    const hTextRect = headerText.getBoundingClientRect();
+
+    // 로고 이동
+    const dxL = (hLogoRect.left + hLogoRect.width/2) - (logoRect.left + logoRect.width/2);
+    const dyL = (hLogoRect.top + hLogoRect.height/2) - (logoRect.top + logoRect.height/2);
+    const scaleL = hLogoRect.width / logoRect.width;
+    splashLogo.style.transform = `translate(${dxL}px, ${dyL}px) scale(${scaleL})`;
+    splashLogo.style.opacity = '0';
+
+    // 텍스트 이동
+    const dxT = (hTextRect.left + hTextRect.width/2) - (textRect.left + textRect.width/2);
+    const dyT = (hTextRect.top + hTextRect.height/2) - (textRect.top + textRect.height/2);
+    const scaleT = hTextRect.width / textRect.width;
+    splashText.style.transform = `translate(${dxT}px, ${dyT}px) scale(${scaleT})`;
+    splashText.style.opacity = '0';
+
+    // 3. 배경 사라지기
+    setTimeout(() => {
+      splash.classList.add('hide');
+      setTimeout(() => { splash.style.display = 'none'; }, 500);
+    }, 900);
+  }, 1200);
 </script>
 </body>
 </html>
