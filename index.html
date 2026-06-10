@@ -14,18 +14,19 @@
       position: fixed; inset: 0; z-index: 9999;
       background: #ffffff;
       display: flex; align-items: center; justify-content: center;
-      animation: splashBgFade 0.4s ease 1.8s forwards;
+      animation: splashBgFade 0.5s ease 3.0s forwards;
     }
-    #splash-logo {
-      width: 180px;
-      animation: logoFly 1.6s cubic-bezier(0.7, 0, 0.3, 1) 0.4s forwards;
+    #splash-inner {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
       opacity: 0;
+      animation: logoFly 2.4s cubic-bezier(0.7, 0, 0.3, 1) 0.3s forwards;
     }
+    #splash-logo { width: 180px; }
     @keyframes logoFly {
       0%   { opacity: 0; transform: scale(0.85) translate(0, 0); }
-      30%  { opacity: 1; transform: scale(1) translate(0, 0); }
-      70%  { opacity: 1; transform: scale(1) translate(0, 0); }
-      100% { opacity: 0; transform: scale(0.35) translate(-38vw, -42vh); }
+      25%  { opacity: 1; transform: scale(1) translate(0, 0); }
+      65%  { opacity: 1; transform: scale(1) translate(0, 0); }
+      100% { opacity: 0; transform: scale(0.3) translate(-38vw, -44vh); }
     }
     @keyframes splashBgFade {
       to { opacity: 0; pointer-events: none; visibility: hidden; }
@@ -224,7 +225,10 @@
 </head>
 <body>
 <div id="splash">
-  <img id="splash-logo" src="logo.png" alt="성휘 엔지니어링">
+  <div id="splash-inner">
+    <img id="splash-logo" src="logo.png" alt="성휘 엔지니어링">
+    <span style="font-family:'Barlow',sans-serif; font-size:13px; font-weight:600; letter-spacing:6px; color:#0D2340; text-transform:uppercase;">Seonghwi Engineering</span>
+  </div>
 </div>
 
 <nav>
@@ -451,7 +455,7 @@
 
   setTimeout(() => {
     document.getElementById('splash').style.display = 'none';
-  }, 2400);
+  }, 3600);
 </script>
 </body>
 </html>
