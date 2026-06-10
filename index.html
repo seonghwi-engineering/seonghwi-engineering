@@ -16,7 +16,7 @@
       display: flex; align-items: center; justify-content: center;
     }
     #splash-inner {
-      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
       opacity: 0;
       transition: opacity 0.8s ease;
     }
@@ -32,7 +32,7 @@
       white-space: nowrap;
       transition: transform 1.4s cubic-bezier(0.6,0,0.2,1), opacity 0.6s ease 0.8s;
     }
-    #splash.hide { opacity: 0; transition: opacity 0.8s ease; pointer-events: none; }
+    #splash.hide { opacity: 0; transition: opacity 2s ease; pointer-events: none; }
   </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -487,11 +487,9 @@
     splashText.style.transform = `translate(${dxT}px, ${dyT}px) scale(${scaleT})`;
     splashText.style.opacity = '0';
 
-    // 3. 배경 사라지기 - 천천히
-    setTimeout(() => {
-      splash.classList.add('hide');
-      setTimeout(() => { splash.style.display = 'none'; }, 800);
-    }, 1400);
+    // 3. 날아감과 동시에 배경 천천히 페이드
+    splash.classList.add('hide');
+    setTimeout(() => { splash.style.display = 'none'; }, 2400);
   }, 1800);
 </script>
 </body>
