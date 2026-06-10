@@ -24,7 +24,7 @@
     #splash-logo {
       width: 250px;
       display: block;
-      margin-bottom: -32px;
+      margin-bottom: -70px;
       transition: transform 1.4s cubic-bezier(0.6,0,0.2,1), opacity 0.6s ease 0.8s;
     }
     #splash-text {
@@ -488,9 +488,11 @@
     splashText.style.transform = `translate(${dxT}px, ${dyT}px) scale(${scaleT})`;
     splashText.style.opacity = '0';
 
-    // 3. 날아감과 동시에 배경 천천히 페이드
-    splash.classList.add('hide');
-    setTimeout(() => { splash.style.display = 'none'; }, 2400);
+    // 3. 날아간 후 배경 천천히 페이드
+    setTimeout(() => {
+      splash.classList.add('hide');
+      setTimeout(() => { splash.style.display = 'none'; }, 2000);
+    }, 1400);
   }, 1800);
 </script>
 </body>
