@@ -19,13 +19,36 @@
       display: flex; flex-direction: column; align-items: center; gap: 0;
       opacity: 0;
       transition: opacity 0.8s ease;
+      margin-top: -120px;
     }
     #splash-inner.visible { opacity: 1; }
+    #splash-logo-wrap {
+      position: relative;
+      display: inline-block;
+      width: 250px;
+      margin-bottom: -100px;
+    }
     #splash-logo {
       width: 250px;
       display: block;
-      margin-bottom: -90px;
       transition: transform 1.4s cubic-bezier(0.6,0,0.2,1), opacity 0.6s ease 0.8s;
+    }
+    /* 띠 shimmer — 왼쪽에서 오른쪽 */
+    #splash-logo-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.7) 50%, transparent 70%);
+      background-size: 200% 100%;
+      background-position: -100% 0;
+      animation: shimmerSweep 0.7s ease 1.0s forwards;
+      border-radius: 4px;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
+    }
+    @keyframes shimmerSweep {
+      0%   { opacity: 1; background-position: -100% 0; }
+      100% { opacity: 0; background-position: 200% 0; }
     }
     #splash-text {
       font-family: 'Barlow', sans-serif; font-size: 60px; font-weight: 700;
@@ -229,7 +252,9 @@
 <body>
 <div id="splash">
   <div id="splash-inner">
-    <img id="splash-logo" src="logo.png" alt="성휘 엔지니어링">
+    <div id="splash-logo-wrap">
+      <img id="splash-logo" src="logo.png" alt="성휘 엔지니어링">
+    </div>
     <span id="splash-text">SEONGHWI</span>
   </div>
 </div>
@@ -469,7 +494,7 @@
     const headerImg = document.querySelector('.nav-logo img');
     const headerText = document.querySelector('.nav-logo span span:first-child');
 
-    const logoRect = splashLogo.getBoundingClientRect();
+    const logoRect = splashLogo.closest('#splash-logo-wrap').getBoundingClientRect();
     const textRect = splashText.getBoundingClientRect();
     const hLogoRect = headerImg.getBoundingClientRect();
     const hTextRect = headerText.getBoundingClientRect();
