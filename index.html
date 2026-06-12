@@ -250,7 +250,7 @@
       .services { padding: 70px 24px; }
       .services-grid { grid-template-columns: 1fr; }
       .ceo-card { padding: 60px 24px; }
-      footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+      footer { flex-direction: column; gap: 10px; text-align: left; padding: 24px; align-items: flex-start !important; }
     }
   </style>
 </head>
@@ -348,7 +348,12 @@
 <section class="ceo" id="ceo">
   <div class="ceo-content">
     <p class="section-eyebrow reveal">Representative</p>
-    <h2 class="section-title reveal reveal-delay-1">전문가 소개<br>Coming 2028</h2>
+    <div style="display:flex; align-items:flex-start; gap:24px; margin-bottom:20px;">
+      <div>
+        <h2 class="section-title reveal reveal-delay-1">대표기술사 소개<br>Coming 2028</h2>
+      </div>
+      <img src="silhouette.png" alt="대표기술사" style="width:90px; height:110px; object-fit:cover; object-position:center top; flex-shrink:0; margin-top:4px; background:#e0e0e0;">
+    </div>
     <div class="divider"></div>
     <p class="reveal reveal-delay-2">건축시공·토목시공·건설안전 세 분야의 기술사 자격을 모두 보유한 전문가가 직접 기술 검토와 법원 감정을 담당합니다. 30년 이상의 현장 경험과 대형 설계사 경력을 바탕으로 현장 중심의 솔루션을 제공합니다.</p>
     <div class="cert-tags">
@@ -367,73 +372,61 @@
     </div>
   </div>
   <div class="ceo-card reveal">
-    <div style="margin-bottom:24px;">
-      <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M35 2 L37.5 32.5 L35 35 L32.5 32.5 Z" fill="#E0B84E"/>
-        <path d="M68 35 L37.5 37.5 L35 35 L37.5 32.5 Z" fill="#E0B84E"/>
-        <path d="M35 68 L32.5 37.5 L35 35 L37.5 37.5 Z" fill="#E0B84E"/>
-        <path d="M2 35 L32.5 32.5 L35 35 L32.5 37.5 Z" fill="#E0B84E"/>
-        <path d="M57.4 12.6 L37.5 33.5 L35 35 L33.5 32.5 Z" fill="#EAC96A"/>
-        <path d="M57.4 57.4 L36.5 37.5 L35 35 L37.5 33.5 Z" fill="#EAC96A"/>
-        <path d="M12.6 57.4 L32.5 36.5 L35 35 L36.5 37.5 Z" fill="#EAC96A"/>
-        <path d="M12.6 12.6 L33.5 32.5 L35 35 L32.5 36.5 Z" fill="#EAC96A"/>
-        <circle cx="35" cy="35" r="3" fill="#E0B84E"/>
-      </svg>
-    </div>
     <div class="ceo-name">Coming 2028</div>
     <div class="ceo-title-text">성휘 엔지니어링 대표</div>
     <p class="ceo-quote">고객의 신뢰를 최우선으로,<br>안전하고 신뢰할 수 있는 건설 환경을 만들겠습니다.</p>
   </div>
 </section>
-
-<section class="services" id="services">
-  <div class="services-header">
-    <p class="section-eyebrow reveal">Services</p>
-    <h2 class="section-title reveal reveal-delay-1">주요 업무 분야</h2>
-  </div>
-  <div class="services-grid">
-
-    <div class="svc reveal reveal-delay-1">
-      <div class="svc-badge">CORE SERVICE</div>
-      <div class="svc-num">01</div>
-      <div class="svc-title">법원 건설 특수감정</div>
-      <p class="svc-desc">재건축·재개발 조합과 시공사 간 공사비 증액 분쟁, 하자 소송에서 법원이 의뢰하는 건설 특수감정을 수행합니다. 건축·토목·안전 세 분야를 단일 감정인이 커버하여 복합 분쟁에 최적화된 감정 결과를 제공합니다.</p>
-    </div>
-
-    <div class="svc reveal reveal-delay-2">
-      <div class="svc-badge">CORE SERVICE</div>
-      <div class="svc-num">02</div>
-      <div class="svc-title">대형 로펌 기술 자문</div>
-      <p class="svc-desc">건설·부동산 전문 로펌의 기술 자문 파트너로서 소송 전략 수립부터 감정서 대응, 전문가 증인까지 법적 분쟁의 전 과정에서 기술적 근거를 제공합니다. 수백억~수천억 규모의 건설 분쟁에서 검증된 자문 역량을 발휘합니다.</p>
-    </div>
-
-    <div class="svc reveal reveal-delay-3">
-      <div class="svc-badge">CORE SERVICE</div>
-      <div class="svc-num">03</div>
-      <div class="svc-title">중대재해처벌법 컨설팅</div>
-      <p class="svc-desc">중대재해처벌법 시행 이후 대기업·공공기관의 안전관리체계 구축과 CEO 형사 리스크 대응을 지원합니다. 건설안전기술사의 전문 역량으로 현장 위험성 평가, 안전관리 계획 수립, 사고 발생 시 법적 대응까지 원스톱으로 컨설팅합니다.</p>
-    </div>
-
-    <div class="svc reveal reveal-delay-4">
-      <div class="svc-num">04</div>
-      <div class="svc-title">재건축·재개발 기술 자문</div>
-      <p class="svc-desc">재건축 조합 또는 시공사를 대리하여 공사비 내역서 검토, 설계 도면 분석, 공정 타당성 평가를 수행합니다. 분쟁 발생 전 단계에서 선제적으로 기술적 근거를 확보하고 협상력을 높입니다.</p>
-    </div>
-
-    <div class="svc reveal reveal-delay-5">
-      <div class="svc-num">05</div>
-      <div class="svc-title">안전진단 및 정밀점검</div>
-      <p class="svc-desc">노후 건축물 및 구조물에 대한 정밀안전진단과 안전점검을 수행합니다. 시설물안전법에 따른 법적 의무 이행은 물론, 실제 현장 리스크를 정확히 진단하여 유지관리 방안을 제시합니다.</p>
-    </div>
-
-    <div class="svc reveal reveal-delay-6">
-      <div class="svc-num">06</div>
-      <div class="svc-title">건설 기술 컨설팅</div>
-      <p class="svc-desc">인허가 검토, 공법 선정, 원가 절감, 품질 관리까지 건설 전 과정에 걸친 기술 컨설팅을 제공합니다. 건축·토목·안전 세 분야를 아우르는 복합적 시각으로 현장 맞춤형 솔루션을 제안합니다.</p>
-    </div>
-
-  </div>
 </section>
+
+    <div id="services" class="services">
+      <div class="services-header">
+        <p class="section-eyebrow reveal">Services</p>
+        <h2 class="section-title reveal reveal-delay-1">주요 업무 분야</h2>
+      </div>
+      <div class="services-grid">
+
+        <div class="svc reveal reveal-delay-1">
+          <div class="svc-badge">CORE SERVICE</div>
+          <div class="svc-num">01</div>
+          <div class="svc-title">건설안전 기술지도 · 안전진단</div>
+          <p class="svc-desc">안전진단전문기관(건축분야) 및 건설재해예방지도전문기관으로서 위험요소 식별·평가, 안전관리계획서 작성·검토, 유해위험방지계획서 작성, 굴착 및 지반 안전지도, 시설물 안전진단을 수행합니다.</p>
+        </div>
+
+        <div class="svc reveal reveal-delay-2">
+          <div class="svc-badge">CORE SERVICE</div>
+          <div class="svc-num">02</div>
+          <div class="svc-title">비상주 감리</div>
+          <p class="svc-desc">건축시공기술사의 전문 역량으로 시공 전 과정에 걸친 비상주 감리를 수행합니다. 시공관리, 품질관리, 공정관리, 안전관리를 통해 발주처를 대신하여 현장의 품질과 안전을 보장합니다.</p>
+        </div>
+
+        <div class="svc reveal reveal-delay-3">
+          <div class="svc-badge">CORE SERVICE</div>
+          <div class="svc-num">03</div>
+          <div class="svc-title">해체감리</div>
+          <p class="svc-desc">지자체 등록 해체감리 전문기관으로서 재건축·재개발 현장의 건물 해체 전 과정을 감리합니다. 해체계획서 검토부터 현장 안전관리, 주변 환경 보호까지 법적 기준에 따라 안전하게 수행합니다.</p>
+        </div>
+
+        <div class="svc reveal reveal-delay-4">
+          <div class="svc-num">04</div>
+          <div class="svc-title">중대재해처벌법 컨설팅</div>
+          <p class="svc-desc">중대재해처벌법 시행 이후 대기업·공공기관의 안전관리체계 구축과 CEO 형사 리스크 대응을 지원합니다. 안전보건개선계획서 및 작업계획서 작성, 안전교육, 현장 위험성 평가까지 원스톱으로 컨설팅합니다.</p>
+        </div>
+
+        <div class="svc reveal reveal-delay-5">
+          <div class="svc-num">05</div>
+          <div class="svc-title">법원 건설감정 · 분쟁 컨설팅</div>
+          <p class="svc-desc">재건축·재개발 조합과 시공사 간 공사비 분쟁, 하자 소송에서 법원이 의뢰하는 건설 특수감정을 수행합니다. 건축·토목·안전 세 분야를 단일 감정인이 커버하여 복합 분쟁에 최적화된 감정 결과를 제공합니다.</p>
+        </div>
+
+        <div class="svc reveal reveal-delay-6">
+          <div class="svc-num">06</div>
+          <div class="svc-title">기술자문 · 설계검토</div>
+          <p class="svc-desc">건축·토목·안전 세 분야를 아우르는 복합 기술자문 서비스를 제공합니다. LH·조달청 기술자문 경험을 바탕으로 설계 적정성 검토, 시공계획 수립, 공정관리, 유지관리 방안까지 현장 맞춤형 솔루션을 제안합니다.</p>
+        </div>
+
+      </div>
+    </div>
 
 <section class="contact" id="contact">
   <div class="contact-grid">
@@ -465,11 +458,11 @@
 
 <footer style="flex-direction:column; align-items:flex-start; gap:8px; padding:32px 60px;">
   <div class="footer-left">SEONGHWI <span>ENGINEERING</span></div>
-  <p style="font-size:11px; color:rgba(255,255,255,0.5); line-height:1.9;">
+  <p style="font-size:11px; color:rgba(255,255,255,0.5); line-height:1.9; text-align:left;">
     성휘 종합기술사사무소 &nbsp;|&nbsp; 사업자등록번호 : 추가 예정 &nbsp;|&nbsp; 대표 : OOO<br>
     주소 : 추가 예정 &nbsp;|&nbsp; T. 추가 예정 &nbsp;|&nbsp; Email. seonghwi.engineering@gmail.com
   </p>
-  <p style="font-size:11px; color:rgba(255,255,255,0.5);">© 2026 성휘 종합기술사사무소. All rights reserved.</p>
+  <p style="font-size:11px; color:rgba(255,255,255,0.5); text-align:left;">© 2026 성휘 종합기술사사무소. All rights reserved.</p>
 </footer>
 
 <script>
@@ -491,10 +484,10 @@
   const splashLogo = document.getElementById('splash-logo');
   const splashText = document.getElementById('splash-text');
 
-  // 1. 등장 - 천천히
+  // 1. 등장
   setTimeout(() => { inner.classList.add('visible'); }, 300);
 
-  // 2. 각자 헤더 위치로 날아가기
+  // 2. 쉬머링 끝난 후 헤더로 날아가기 (쉬머 딜레이1000 + 지속2000 + 여유500 = 3500)
   setTimeout(() => {
     const headerImg = document.querySelector('.nav-logo img');
     const headerText = document.querySelector('.nav-logo span span:first-child');
@@ -523,7 +516,7 @@
       splash.classList.add('hide');
       setTimeout(() => { splash.style.display = 'none'; }, 2000);
     }, 1400);
-  }, 1800);
+  }, 3500);
 </script>
 </body>
 </html>
